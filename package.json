@@ -1,9 +1,12 @@
 {
   "name": "expo-gh-pages",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "homepage": "https://zephyrplace.github.io/expo-gh-pages",
   "scripts": {
-    "deploy": "node index.js"
+    "start": "node bin/expo-gh-pages.js"
+  },
+  "bin": {
+    "expo-gh-pages": "bin/expo-gh-pages.js"
   },
   "description": "Hosting An App from Expo on Github Pages",
   "main": "index.js",

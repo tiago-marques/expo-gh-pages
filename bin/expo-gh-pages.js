@@ -6,14 +6,14 @@ const nrc = require('node-run-cmd');
 run().catch(error => console.error(error.stack));
 
 async function run() {
-  const package = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'package.json'), 'UTF-8'))
+  const package = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'package.json'), 'UTF-8'))
 
   var commands = [
     `expo export --public-url ${package.homepage}`,
     'gh-pages -d dist'
   ];
-  var options = { cwd: path.resolve(__dirname) };
-  nrc.run(commands, options).then(function done(codes){
+  var options = { cwd: process.cwd() };
+  nrc.run(commands, options).then(async function done(codes){
     const homepage = package.homepage.replace('http', 'exp')
     if(homepage.indexOf(homepage.length -1) === '/'){
       homepage.slice(0, -1);
