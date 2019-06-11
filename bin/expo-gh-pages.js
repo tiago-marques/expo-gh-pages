@@ -10,7 +10,7 @@ function publish() {
     const package = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'package.json'), 'UTF-8'))
     let homepage = package.homepage
     if(homepage.indexOf(homepage.length -1) === '/'){
-      homepage.slice(0, -1);
+      homepage = homepage.slice(0, -1);
     }
     var commands = [
       `expo export --public-url ${homepage}`,
