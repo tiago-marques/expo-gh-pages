@@ -16,7 +16,7 @@ function clean(){
 }
 
 
-function export(){
+function expoExport(){
   const package = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'package.json'), 'UTF-8'))
   const homepage;
   if(package.homepage.indexOf(package.homepage.length -1) === '/'){
@@ -105,7 +105,7 @@ function publish() {
 
 function main(args) {
   return clean()
-  .then(export)
+  .then(expoExport)
   .then(createPage)
   .then(publish)
 }
