@@ -14,7 +14,7 @@
             <div class="hero-body">
                 <div class="container">
                     <p class="title">
-                        https://hedz.dev-zp.com/
+                        ${homepage}
                     </p>
                     <p class="subtitle">
                         expo-gh-pages
@@ -23,26 +23,27 @@
             </div>
         </section>
     </div>
-    <div class="columns">
-        <div class="column">
-            <h1 class="title has-text-centered">
-                Android
-            </h1>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAYAAAB1PADUAAAAAklEQVR4AewaftIAAAS8SURBVO3BQY4cSRIEQdNA/f/Lun30UwCJ9GoOuSaCP1K15KRq0UnVopOqRSdVi06qFp1ULTqpWnRSteikatFJ1aKTqkUnVYtOqhadVC06qVr0yUtAfpOaGyCTmhsgT6iZgLyh5gbIb1LzxknVopOqRSdViz5ZpmYTkN+k5gbIE2pugExqbtRsArLppGrRSdWik6pFn3wZkCfUPAHkCSDfpOY3AXlCzTedVC06qVp0UrXok3+Mmhs1N0AmNTdqJiBPqPmXnFQtOqladFK16JN/DJBvUjMBeQPIpOZvdlK16KRq0UnVok++TM2fpGYCMqmZgExAbtRMQCY1N0DeUPNfclK16KRq0UnVok+WAfmT1ExAJjUTkEnNBGRSMwGZ1ExAJjVvAPkvO6ladFK16KRqEf7IXwzIE2reAHKj5gbIjZq/2UnVopOqRSdViz55CcikZgKySc2k5gbIBGSTmgnIpOZGzQ2QTWq+6aRq0UnVopOqRZ98mZongExqJiCTmjfUTEAmNTdAJjUTkBsgm9Q8AWRS88ZJ1aKTqkUnVYs+WQbkRs0EZFIzAZnUPKFmAjIBeQLIpOYJNROQSc0bQG7UTGo2nVQtOqladFK1CH/kPwTIpOYGyBNqJiCTmieATGpugExqJiCTmgnIpOYJIJOaTSdVi06qFp1ULcIfeQHIpOYGyKRmAvKEmjeAPKHmBsik5jcBeULNppOqRSdVi06qFuGP/EFAJjU3QJ5QMwG5UTMBmdRMQH6TmgnIpGYCMqmZgExq3jipWnRSteikatEnLwG5UTMBmdTcAHlCzQRkUjMBmYBMaiYgT6j5JjVvqNl0UrXopGrRSdUi/JFFQG7U3ACZ1ExAbtRMQG7U3AC5UXMD5Ak13wRkUrPppGrRSdWik6pF+CNfBOQJNROQGzU3QCY1E5An1NwAmdRMQCY1TwCZ1NwAeULNGydVi06qFp1ULfrkJSA3at5QMwGZgNyoeUPNDZBJzQTkDSA3QJ5QMwHZdFK16KRq0UnVok+WqbkBMqm5AfInAXlDzRtqboC8oWbTSdWik6pFJ1WLPvllaiYgN2pugLyh5gbIG0AmNTdA3lDzJ51ULTqpWnRSteiTLwNyo+YGyI2aGyCTmgnIE2pugExqboB8E5BJzTedVC06qVp0UrUIf+QvBmRSMwG5UTMBmdRsAnKj5gkgm9S8cVK16KRq0UnVok9eAvKb1ExqJiCTmjeA3KiZgGwCMql5Q803nVQtOqladFK16JNlajYBuQFyA2RSMwGZ1NwAmYBMaiYgb6h5Q80E5EbNGydVi06qFp1ULfrky4A8oeYNNROQCcik5g01E5BJzQ2QCcgbaiYgv+mkatFJ1aKTqkWf/GOAfJOaCcgNkEnNE2r+JidVi06qFp1ULfrk/4yaGyCTmgnIE2reAPKEmknNBGRSs+mkatFJ1aKTqkWffJmab1IzAZnUTEA2qXkCyI2aCcgTQCY1v+mkatFJ1aKTqkWfLAPym4BMap5QcwNkUnMDZFJzo+ZGzQTkRs0EZFLzTSdVi06qFp1ULcIfqVpyUrXopGrRSdWik6pFJ1WLTqoWnVQtOqladFK16KRq0UnVopOqRSdVi06qFp1ULfof/I8sLnT/wXUAAAAASUVORK5CYII="
-                style="display: block;
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <h1 class="title has-text-centered">
+                    Android
+                </h1>
+                <img src="${androidQrCode}" style="display: block;
             margin-left: auto;
             margin-right: auto;" />
-        </div>
-        <div class="column">
-            <h1 class="title has-text-centered">
-                iOS
-            </h1>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAYAAAB1PADUAAAAAklEQVR4AewaftIAAATPSURBVO3BQW4kSRIEQdNA/f/Lujz6KYBEenGbAxPBH6laclK16KRq0UnVopOqRSdVi06qFp1ULTqpWnRSteikatFJ1aKTqkUnVYtOqhadVC365CUgv0nNBGRSMwGZ1NwAmdTcAHlDzQ2Q36TmjZOqRSdVi06qFn2yTM0mIH+JmgnIpOYNNZuAbDqpWnRSteikatEnXwbkCTVPqJmAbAKyCciNmieAPKHmm06qFp1ULTqpWvTJHwfkRs0EZFKzCcgTav5LTqoWnVQtOqla9Mkfp2YCMgH5TWpugPyXnVQtOqladFK16JMvU/Ob1DwBZFIzAZnUTEAmIE8AmdQ8oeZfclK16KRq0UnVok+WAflNQCY1E5BJzTepmYBMaiYgTwD5l51ULTqpWnRSteiTl9T8y9RsAjKpmYDcAJnU3Kj5S06qFp1ULTqpWvTJS0AmNROQGzUTkCfUPAFkUjMBmdRMQCYgT6h5Asik5gbIpGYCcqPmjZOqRSdVi06qFuGPLAJyo2YCcqNmAnKjZgIyqZmA3Ki5AfIvUfMEkEnNGydVi06qFp1ULfrkJSCTmgnIE2omIG+ouVEzAXlCzQRkUvMEkEnNBOQGyKRmAjKp2XRSteikatFJ1SL8kS8CMqn5TUBu1DwBZFJzA2RS8wSQN9TcAJnUvHFSteikatFJ1SL8kUVAJjUTkEnNDZBJzQTkRs0bQCY1N0AmNb8JyBNqNp1ULTqpWnRStQh/ZBGQGzU3QCY1E5An1NwAmdRMQG7UPAFkUnMD5EbNE0Bu1LxxUrXopGrRSdWiT75MzQRkUnMD5EbNDZBJzQ2QSc0NkE1AbtRMQP4lJ1WLTqoWnVQt+uQlIN+k5gbIpOYGyKTmBsiNmieATEAmNU+oeQLIpGbTSdWik6pFJ1WLPlmmZhOQSc0TaiYgE5BJzRNAJjUTkCeATGpugExqbtRMQCY1b5xULTqpWnRSteiTl9RMQCY1k5oJyKTmCTX/T2qeUHMD5AbIpOYGyI2aTSdVi06qFp1ULfrkJSCTmgnIjZobIDdqJiCTmhs1E5AngGxSc6NmAvKEmm86qVp0UrXopGoR/sj/EZBJzQ2QGzUTkBs1E5AbNROQJ9RMQCY1E5BJzRNAbtRsOqladFK16KRq0SfLgNyomdRMQG7U/CVqJiA3QG6AbAIyqXnjpGrRSdWik6pF+CN/GJAbNROQGzVPANmk5gkgm9S8cVK16KRq0UnVok9eAvKb1DwBZFLzBJBJzaRmArIJyKTmCTUTkEnNppOqRSdVi06qFn2yTM0mIE+omYA8AeQNNROQSc0E5EbNE2pu1HzTSdWik6pFJ1WLPvkyIE+oeULNG0AmNTdAJjUTkEnNE0A2AZnUfNNJ1aKTqkUnVYs++eOAPAFkUvMGkEnNE2qeAPKEmhsgk5o3TqoWnVQtOqla9Ml/jJoJyKTmBsikZlIzAXkCyI2aJ9RMQCY1v+mkatFJ1aKTqkWffJmab1Jzo2YCMqmZ1PxLgNwAeQLIpGbTSdWik6pFJ1WLPlkG5DcBuVEzqbkBMqmZgExqboA8AWRS85ecVC06qVp0UrUIf6RqyUnVopOqRSdVi06qFp1ULTqpWnRSteikatFJ1aKTqkUnVYtOqhadVC06qVp0UrXof/5wOjLbu8plAAAAAElFTkSuQmCC"
-                style="display: block;
+                <a href="${androidIndexJsonURI}"> Expo iOS link</a>
+            </div>
+            <div class="column">
+                <h1 class="title has-text-centered">
+                    iOS
+                </h1>
+                <img src="${iosQrCode}" style="display: block;
             margin-left: auto;
             margin-right: auto;" />
+                <a href="${iosIndexJsonURI}"> Expo iOS link</a>
+            </div>
         </div>
-
     </div>
 </body>
 

@@ -55,23 +55,25 @@ function publish() {
         </section>
     </div>
     <div class="container">
-    <div class="columns">
-        <div class="column">
-            <h1 class="title has-text-centered">
-                Android
-            </h1>
-            <img src="${androidQrCode}" style="display: block;
+        <div class="columns">
+            <div class="column">
+                <h1 class="title has-text-centered">
+                    Android
+                </h1>
+                <img src="${androidQrCode}" style="display: block;
             margin-left: auto;
             margin-right: auto;" />
-        </div>
-        <div class="column">
-            <h1 class="title has-text-centered">
-                iOS
-            </h1>
-            <img src="${iosQrCode}" style="display: block;
+                <a href="${androidIndexJsonURI}"> Expo iOS link</a>
+            </div>
+            <div class="column">
+                <h1 class="title has-text-centered">
+                    iOS
+                </h1>
+                <img src="${iosQrCode}" style="display: block;
             margin-left: auto;
             margin-right: auto;" />
-        </div>
+                <a href="${iosIndexJsonURI}"> Expo iOS link</a>
+            </div>
         </div>
     </div>
 </body>
