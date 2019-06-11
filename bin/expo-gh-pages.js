@@ -12,12 +12,12 @@ function clean(){
   ];
 
   var options = { cwd: process.cwd() };
-  return nrc.run(commands, options)
+  return nrc.run(commands, options);
 }
 
 
 function expoExport(){
-  const package = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'package.json'), 'UTF-8'))
+  const package = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'package.json'), 'UTF-8'));
   let homepage;
   if(package.homepage.indexOf(package.homepage.length -1) === '/'){
     homepage = package.homepage.slice(0, -1);
@@ -27,17 +27,17 @@ function expoExport(){
   ];
 
   var options = { cwd: process.cwd() };
-  return nrc.run(commands, options)
+  return nrc.run(commands, options);
 }
 
 async function createPage(codes){
-    console.log(codes)
-    let exphomepage = homepage.replace('http', 'exp')
-    const androidIndexJsonURI = `${exphomepage}/android-index.json`
-    const iosIndexJsonURI = `${exphomepage}/ios-index.json`
+    console.log(codes);
+    let exphomepage = homepage.replace('http', 'exp');
+    const androidIndexJsonURI = `${exphomepage}/android-index.json`;
+    const iosIndexJsonURI = `${exphomepage}/ios-index.json`;
   
-    const androidQrCode = await qrcode.toDataURL(androidIndexJsonURI)
-    const iosQrCode = await qrcode.toDataURL(iosIndexJsonURI)
+    const androidQrCode = await qrcode.toDataURL(androidIndexJsonURI);
+    const iosQrCode = await qrcode.toDataURL(iosIndexJsonURI);
     
     fs.writeFileSync('./dist/index.html',
 `<!DOCTYPE html>
@@ -90,7 +90,7 @@ async function createPage(codes){
 </body>
 
 </html>`);
-
+}
 
 function publish() {  
   var commands = [
@@ -98,10 +98,8 @@ function publish() {
   ];
 
   var options = { cwd: process.cwd() };
-  return nrc.run(commands, options)
+  return nrc.run(commands, options);
 }
-
-
 
 function main(args) {
   return clean()
@@ -121,4 +119,3 @@ if (require.main === module) {
 }
 
 exports = module.exports = main;
-
