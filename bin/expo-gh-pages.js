@@ -78,7 +78,7 @@ async function createPage(codes){
               <img src="${androidQrCode}" style="display: block;
           margin-left: auto;
           margin-right: auto;" />
-              <a href="${androidIndexJsonURI}"> Expo iOS link</a>
+              <a href="${androidIndexJsonURI}"> Expo Android link</a>
           </div>
           <div class="column">
               <h1 class="title has-text-centered">
