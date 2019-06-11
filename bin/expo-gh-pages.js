@@ -31,7 +31,10 @@ function expoExport(){
 }
 
 async function createPage(codes){
-    console.log(codes);
+    let homepage;
+    if(package.homepage.indexOf(package.homepage.length -1) === '/'){
+      homepage = package.homepage.slice(0, -1);
+    }
     let exphomepage = homepage.replace('http', 'exp');
     const androidIndexJsonURI = `${exphomepage}/android-index.json`;
     const iosIndexJsonURI = `${exphomepage}/ios-index.json`;
