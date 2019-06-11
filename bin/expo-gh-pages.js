@@ -71,14 +71,14 @@ async function createPage(codes){
   </div>
   <div class="container">
       <div class="columns">
-          <div class="column">
-              <h1 class="title has-text-centered">
+          <div class="column has-text-centered">
+              <h1 class="title">
                   Android
               </h1>
               <img src="${androidQrCode}" style="display: block;
           margin-left: auto;
           margin-right: auto;" />
-              <a class="title has-text-centered" href="${androidIndexJsonURI}"> Expo iOS link</a>
+              <a href="${androidIndexJsonURI}"> Expo iOS link</a>
           </div>
           <div class="column">
               <h1 class="title has-text-centered">
@@ -87,7 +87,7 @@ async function createPage(codes){
               <img src="${iosQrCode}" style="display: block;
           margin-left: auto;
           margin-right: auto;" />
-              <a class="title has-text-centered" href="${iosIndexJsonURI}"> Expo iOS link</a>
+              <a href="${iosIndexJsonURI}"> Expo iOS link</a>
           </div>
       </div>
   </div>
