@@ -1,6 +1,6 @@
 {
   "name": "expo-gh-pages",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "homepage": "https://zephyrplace.github.io/expo-gh-pages",
   "scripts": {
     "start": "node bin/expo-gh-pages.js"

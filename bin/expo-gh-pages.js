@@ -18,7 +18,7 @@ function clean(){
 
 function expoExport(){
   const package = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'package.json'), 'UTF-8'))
-  const homepage;
+  let homepage;
   if(package.homepage.indexOf(package.homepage.length -1) === '/'){
     homepage = package.homepage.slice(0, -1);
   }
