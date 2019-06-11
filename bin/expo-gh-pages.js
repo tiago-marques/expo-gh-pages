@@ -27,12 +27,24 @@ function publish() {
       const androidQrCode = await qrcode.toDataURL(androidIndexJsonURI)
       const iosQrCode = await qrcode.toDataURL(iosIndexJsonURI)
       
-      fs.writeFileSync('./dist/index.html', `
+      fs.writeFileSync('./dist/index.html',
+`
+<!DOCTYPE html>
+<html>
+
+<head>
+      <meta charset="UTF-8">
+      <title>expo-gh-pages</title>
+</head>
+
+<body>
       <h1>Expo GH Pages</h1>
       <h2>Android</h2>
       <img src="${androidQrCode}">
       <h2>iOS</h2>
       <img src="${iosQrCode}">
+</body>
+</html>
       `);
       resolve()
   }, function err(err){
