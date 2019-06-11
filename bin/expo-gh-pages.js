@@ -31,6 +31,7 @@ function expoExport(){
 }
 
 async function createPage(codes){
+    const package = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'package.json'), 'UTF-8'));
     let homepage;
     if(package.homepage.indexOf(package.homepage.length -1) === '/'){
       homepage = package.homepage.slice(0, -1);
