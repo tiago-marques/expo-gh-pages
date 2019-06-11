@@ -80,7 +80,7 @@ async function createPage(codes){
           margin-right: auto;" />
               <a href="${androidIndexJsonURI}"> Expo Android link</a>
           </div>
-          <div class="column">
+          <div class="column has-text-centered">
               <h1 class="title has-text-centered">
                   iOS
               </h1>
