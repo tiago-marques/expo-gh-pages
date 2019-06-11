@@ -13,6 +13,7 @@ function publish() {
       homepage = homepage.slice(0, -1);
     }
     var commands = [
+      'rm -rf dist',
       `expo export --public-url ${homepage}`,
       'gh-pages -d dist'
     ];
