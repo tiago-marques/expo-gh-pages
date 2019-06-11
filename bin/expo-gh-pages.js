@@ -42,7 +42,7 @@ async function createPage(codes){
   
     const androidQrCode = await qrcode.toDataURL(androidIndexJsonURI);
     const iosQrCode = await qrcode.toDataURL(iosIndexJsonURI);
-    
+    fs.writeFileSync('./dist/favicon.ico', require('./favicon.ico'))
     fs.writeFileSync('./dist/index.html',
 `<!DOCTYPE html>
 <html>
