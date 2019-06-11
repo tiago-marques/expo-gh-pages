@@ -27,8 +27,7 @@ function publish() {
       const iosQrCode = await qrcode.toDataURL(iosIndexJsonURI)
       
       fs.writeFileSync('./dist/index.html',
-`
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html>
 
 <head>
@@ -74,8 +73,7 @@ function publish() {
     </div>
 </body>
 
-</html>
-      `);
+</html>`);
       resolve()
   }, function err(err){
     return reject(err);
