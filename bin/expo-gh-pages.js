@@ -19,7 +19,6 @@ function publish() {
 
     var options = { cwd: process.cwd() };
     nrc.run(commands, options).then(async function done(codes){
-      console.log(codes)
       homepage = homepage.replace('http', 'exp')
       const androidIndexJsonURI = `${homepage}/android-index.json`
       const iosIndexJsonURI = `${homepage}/ios-index.json`
