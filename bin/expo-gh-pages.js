@@ -19,6 +19,7 @@ function publish() {
 
     var options = { cwd: process.cwd() };
     nrc.run(commands, options).then(async function done(codes){
+      console.log(codes)
       let exphomepage = homepage.replace('http', 'exp')
       const androidIndexJsonURI = `${exphomepage}/android-index.json`
       const iosIndexJsonURI = `${exphomepage}/ios-index.json`
@@ -52,6 +53,7 @@ function publish() {
             </div>
         </section>
     </div>
+    <div class="container">
     <div class="columns">
         <div class="column">
             <h1 class="title has-text-centered">
@@ -69,7 +71,7 @@ function publish() {
             margin-left: auto;
             margin-right: auto;" />
         </div>
-
+        </div>
     </div>
 </body>
 
