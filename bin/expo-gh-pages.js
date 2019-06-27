@@ -6,9 +6,11 @@ const qrcode = require('qrcode');
 const nrc = require('node-run-cmd');
 const generateHtml = require('../lib/generateHtml')
 
+
 function clean(){
   var commands = [
-    'rm -rf dist'
+    'rm -rf dist',
+    'gh-pages-clean'
   ];
 
   var options = { cwd: process.cwd() };
@@ -31,7 +33,7 @@ function expoExport(){
 
 async function createPage(){
     const package = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'package.json'), 'UTF-8'));
-    let homepage = package.homepage;
+    let {homepage, name} = package;
     if(homepage.charAt(homepage.length -1) === '/'){
       homepage = homepage.slice(0, -1);
     }
@@ -47,14 +49,15 @@ async function createPage(){
       androidIndexJsonURI, 
       iosIndexJsonURI, 
       androidQrCode, 
-      iosQrCode
+      iosQrCode,
+      name
     }));
 }
 
 function createFavIco(){
-  return Promise((resolve, reject) => {
-      fs.copyFile('./favicon.ico', './dist/favicon.ico', err => {
-        err && reject()
+  return new Promise((resolve, reject) => {
+      fs.copyFile(path.resolve(__dirname, '../favicon.ico'), './dist/favicon.ico', err => {
+        err && reject(err)
         resolve()
       })
   })
