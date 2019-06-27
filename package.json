@@ -1,6 +1,6 @@
 {
   "name": "expo-gh-pages",
-  "version": "1.0.34",
+  "version": "1.1.0",
   "homepage": "https://zephyrplace.github.io/expo-gh-pages",
   "scripts": {
     "start": "node bin/expo-gh-pages.js"
@@ -15,8 +15,13 @@
   "license": "SEE LICENSE IN LICENSE",
   "private": false,
   "dependencies": {
+    "chalk": "^2.4.2",
     "gh-pages": "^2.0.1",
     "node-run-cmd": "^1.0.1",
+    "progress": "^2.0.3",
     "qrcode": "^1.3.3"
+  },
+  "devDependencies": {
+    "standard": "^12.0.1"
   }
 }

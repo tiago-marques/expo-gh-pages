@@ -1,93 +1,49 @@
 #!/usr/bin/env node
+const chalk = require('chalk')
 
-const path = require('path');
-const fs = require('fs');
-const qrcode = require('qrcode');
-const nrc = require('node-run-cmd');
-const generateHtml = require('../lib/generateHtml')
+const clean = require('../lib/clean/clean')
+const expoExport = require('../lib/expo/export')
+const createPage = require('../lib/website/createPage')
+const createFavicon = require('../lib/website/createFavicon')
+const createCNAME = require('../lib/website/createCNAME')
+const publish = require('../lib/gh-pages/publish')
 
+const ProgressBar = require('progress')
+let bar
+const fns = [
+  generateFunctionInformations(clean, bar),
+  generateFunctionInformations(expoExport, bar),
+  generateFunctionInformations(createPage, bar),
+  generateFunctionInformations(createFavicon, bar),
+  generateFunctionInformations(createCNAME, bar),
+  generateFunctionInformations(publish, bar)
+]
+bar = new ProgressBar(':percent', { total: fns.length })
 
-function clean(){
-  var commands = [
-    'rm -rf dist',
-    'gh-pages-clean'
-  ];
-
-  var options = { cwd: process.cwd() };
-  return nrc.run(commands, options);
+function generateFunctionInformations (functionArg) {
+  return () => functionArg()
+    .then(() => bar.tick())
+    // .then(() => console.log(chalk.green(functionArg.name + ' done.')))
 }
 
-function expoExport(){
-  const package = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'package.json'), 'UTF-8'));
-  let homepage = package.homepage;
-  if(homepage.charAt(homepage.length -1) === '/'){
-    homepage = homepage.slice(0, -1);
-  }
-  var commands = [
-    `expo export --public-url ${homepage}`,
-  ];
-
-  var options = { cwd: process.cwd() };
-  return nrc.run(commands, options);
-}
-
-async function createPage(){
-    const package = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'package.json'), 'UTF-8'));
-    let {homepage, name} = package;
-    if(homepage.charAt(homepage.length -1) === '/'){
-      homepage = homepage.slice(0, -1);
-    }
-    let exphomepage = homepage.replace('http', 'exp');
-    const androidIndexJsonURI = `${exphomepage}/android-index.json`;
-    const iosIndexJsonURI = `${exphomepage}/ios-index.json`;
-  
-    const androidQrCode = await qrcode.toDataURL(androidIndexJsonURI);
-    const iosQrCode = await qrcode.toDataURL(iosIndexJsonURI);
-    
-    fs.writeFileSync('./dist/index.html', generateHtml({
-      homepage, 
-      androidIndexJsonURI, 
-      iosIndexJsonURI, 
-      androidQrCode, 
-      iosQrCode,
-      name
-    }));
-}
-
-function createFavIco(){
-  return new Promise((resolve, reject) => {
-      fs.copyFile(path.resolve(__dirname, '../favicon.ico'), './dist/favicon.ico', err => {
-        err && reject(err)
-        resolve()
-      })
+function main (args) {
+  return fns.reduce((promiseChain, currentTask) => {
+    return promiseChain.then(chainResults =>
+      currentTask().then(currentResult =>
+        [ ...chainResults, currentResult ]
+      )
+    )
+  }, Promise.resolve([])).then(arrayOfResults => {
+    console.log(chalk.green('\nFinished!\n'))
   })
-}
-
-function publish() {  
-  var commands = [
-    'gh-pages -d dist'
-  ];
-
-  var options = { cwd: process.cwd() };
-  return nrc.run(commands, options);
-}
-
-function main(args) {
-  return clean()
-  .then(expoExport)
-  .then(createPage)
-  .then(createFavIco)
-  .then(publish)
 }
 
 if (require.main === module) {
   main(process.argv)
-    .then(() => {
-      process.stdout.write('Published\n');
-    })
     .catch(err => {
-      process.stderr.write(`${err.message}\n`, () => process.exit(1));
-    });
+      console.log(chalk.red(`${err.message}\n`))
+      process.exit(1)
+    })
 }
 
-exports = module.exports = main;
+exports = module.exports = main
