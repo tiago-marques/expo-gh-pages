@@ -1,14 +1,16 @@
 #!/usr/bin/env node
-const chalk = require('chalk')
+import chalk from 'chalk'
+import { fileURLToPath } from 'url';
+import process from 'process';
+import ProgressBar from 'progress'
 
-const clean = require('../lib/clean/clean')
-const expoExport = require('../lib/expo/export')
-const createPage = require('../lib/website/createPage')
-const createFavicon = require('../lib/website/createFavicon')
-const createCNAME = require('../lib/website/createCNAME')
-const publish = require('../lib/gh-pages/publish')
+import clean from '../lib/clean/clean.js'
+import expoExport from '../lib/expo/export.js'
+import createPage from '../lib/website/createPage.js'
+import createFavicon from '../lib/website/createFavicon.js'
+import createCNAME from '../lib/website/createCNAME.js'
+import publish from '../lib/gh-pages/publish.js'
 
-const ProgressBar = require('progress')
 let bar
 const fns = [
   generateFunctionInformations(clean, bar),
@@ -23,7 +25,6 @@ bar = new ProgressBar(':percent', { total: fns.length })
 function generateFunctionInformations (functionArg) {
   return () => functionArg()
     .then(() => bar.tick())
-    // .then(() => console.log(chalk.green(functionArg.name + ' done.')))
 }
 
 function main (args) {
@@ -37,8 +38,8 @@ function main (args) {
     console.log(chalk.green('\nFinished!\n'))
   })
 }
-
-if (require.main === module) {
+// if (require.main === module) {
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
   main(process.argv)
     .catch(err => {
       console.log(chalk.red(`${err.message}\n`))
@@ -46,4 +47,4 @@ if (require.main === module) {
     })
 }
 
-exports = module.exports = main
+export default main
